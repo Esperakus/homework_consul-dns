@@ -1,0 +1,8 @@
+---
+# handlers file for haproxy
+
+- name: restart rsyslog
+  systemd:
+    name: rsyslogd
+    state: restarted
+    enabled: true

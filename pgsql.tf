@@ -4,8 +4,9 @@ resource "yandex_compute_instance" "db" {
   hostname = "db"
 
   resources {
-    cores  = 2
-    memory = 4
+    cores         = 2
+    memory        = 4
+    core_fraction = 20
   }
 
   boot_disk {
