@@ -5,8 +5,9 @@ resource "yandex_compute_instance" "backend" {
   hostname = "backend${count.index}"
 
   resources {
-    cores  = 2
-    memory = 2
+    cores         = 2
+    memory        = 2
+    core_fraction = 20
   }
 
   boot_disk {

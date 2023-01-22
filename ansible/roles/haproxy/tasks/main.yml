@@ -1,0 +1,47 @@
+---
+# tasks file for haproxy
+
+- name: haproxy
+  dnf:
+    name: 
+      - haproxy
+      - rsyslog
+    state: present
+    update_cache: true
+
+- name: copy haproxy config
+  copy:
+    src: ../files/haproxy.cfg 
+    dest: /etc/haproxy/haproxy.cfg
+
+- name: haproxy home
+  file:
+    name: /var/lib/haproxy/
+    state: directory
+    owner: haproxy
+    mode: '0755'
+
+- name: rsyslog haproxy dev
+  file:
+    name: /var/lib/haproxy/dev/
+    state: directory
+    mode: '0755'
+
+- name: rsyslog haproxy config
+  copy:
+    src: ../files/99-haproxy.conf
+    dest: /etc/rsyslog.d/99-haproxy.conf
+  notify: restart rsyslog
+
+- name: check haproxy conf
+  command: /sbin/haproxy -c -f /etc/haproxy/haproxy.cfg
+  register: haproxy_config
+    
+
+- name: start haproxy
+  systemd:
+    name: haproxy.service
+    state: restarted
+    enabled: true
+  when: haproxy_config is succeeded
+    

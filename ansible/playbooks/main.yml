@@ -69,3 +69,7 @@
 - hosts: backend_hosts
   roles:
     - { role: backend, become: true }
+
+- hosts: localhost
+  roles:
+    - { role: haproxy, become: true }
