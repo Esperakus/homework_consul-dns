@@ -76,6 +76,7 @@ resource "yandex_compute_instance" "ansible" {
     yandex_compute_instance.nginx,
     yandex_compute_instance.db,
     yandex_compute_instance.iscsi,
-    yandex_compute_instance.backend
+    yandex_compute_instance.backend,
+    yandex_compute_instance.haproxy,
   ]
 }
