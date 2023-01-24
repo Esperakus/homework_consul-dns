@@ -73,7 +73,7 @@ PostgreSQL 13.9 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 8.5.0 20210514 (Re
 Можно зайти по ssh на джамп-хост, с которого можно попасть на любую ВМ внутри стенда. Для этого из рабочей папки проекта надо выполнить:
 
 ```
-$ ssh cloud-user@{external_ip_address_ansible} -i id_rsa
+$ ssh almalinux@{external_ip_address_ansible} -i id_rsa
 ```
 **external_ip_address_ansible** посмотреть в выводе terraform или консоли yandex.cloud.
 

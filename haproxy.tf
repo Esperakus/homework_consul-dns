@@ -20,9 +20,9 @@ resource "yandex_compute_instance" "haproxy" {
     nat       = true
   }
 
-  # metadata = {
-  #   ssh-keys = "almalinux:${tls_private_key.ssh.public_key_openssh}"
-  # }
+  metadata = {
+    ssh-keys = "almalinux:${tls_private_key.ssh.public_key_openssh}"
+  }
 
   # connection {
   #   type        = "ssh"

@@ -16,7 +16,7 @@ variable "folder_id" {
 variable "image_id" {
   type = string
 
-  default = "fd816jiq3n13qtli6fh3" #centos 8 stream
+  default = "fd8mcvr7idjrbd9kopru" #almalinux 8
 }
 
 variable "yc_token" {

@@ -17,3 +17,8 @@ ${hostname}
 %{ for hostname in db_hosts ~}
 ${hostname}
 %{ endfor ~}
+
+[haproxy]
+%{ for hostname in haproxy ~}
+${hostname}
+%{ endfor ~}

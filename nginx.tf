@@ -22,7 +22,7 @@ resource "yandex_compute_instance" "nginx" {
   }
 
   metadata = {
-    ssh-keys = "cloud-user:${tls_private_key.ssh.public_key_openssh}"
+    ssh-keys = "almalinux:${tls_private_key.ssh.public_key_openssh}"
   }
 
 }

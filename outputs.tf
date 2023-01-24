@@ -1,6 +1,6 @@
-# output "external_ip_address_lb" {
-#   value = yandex_lb_network_load_balancer.lb01.listener.*
-# }
+output "external_ip_address_haproxy" {
+  value = yandex_compute_instance.haproxy.*.network_interface.0.nat_ip_address
+}
 
 output "external_ip_address_ansible" {
   value = yandex_compute_instance.ansible.*.network_interface.0.nat_ip_address
