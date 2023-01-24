@@ -1,6 +1,6 @@
 ---
 
-- hosts: all:localhost
+- hosts: all
   roles:
     - { role: general-el8, become: true }
     

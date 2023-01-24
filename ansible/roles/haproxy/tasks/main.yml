@@ -37,7 +37,6 @@
   command: /sbin/haproxy -c -f /etc/haproxy/haproxy.cfg
   register: haproxy_config
     
-
 - name: start haproxy
   systemd:
     name: haproxy.service
