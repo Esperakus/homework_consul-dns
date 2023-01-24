@@ -22,3 +22,8 @@ ${hostname}
 %{ for hostname in haproxy ~}
 ${hostname}
 %{ endfor ~}
+
+[consul]
+%{ for hostname in consul ~}
+${hostname}
+%{ endfor ~}

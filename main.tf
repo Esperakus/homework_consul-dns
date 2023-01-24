@@ -45,11 +45,14 @@ resource "local_file" "hosts" {
       nginx_hosts   = yandex_compute_instance.nginx.*.hostname
       backend_hosts = yandex_compute_instance.backend.*.hostname
       haproxy       = yandex_compute_instance.haproxy.*.hostname
+      consul        = yandex_compute_instance.consul.*.hostname
   })
   depends_on = [
     yandex_compute_instance.iscsi,
     yandex_compute_instance.db,
     yandex_compute_instance.nginx,
-    yandex_compute_instance.backend
+    yandex_compute_instance.backend,
+    yandex_compute_instance.haproxy,
+    yandex_compute_instance.consul,
   ]
 }
