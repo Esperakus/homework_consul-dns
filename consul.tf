@@ -1,7 +1,8 @@
 resource "yandex_compute_instance" "consul" {
 
-  name     = "consul"
-  hostname = "consul"
+  count    = 3
+  name     = "consul${count.index}"
+  hostname = "consul${count.index}"
 
   resources {
     cores         = 2

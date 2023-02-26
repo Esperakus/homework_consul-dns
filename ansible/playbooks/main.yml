@@ -70,7 +70,10 @@
   roles:
     - { role: backend, become: true }
 
-- hosts: haproxy
+- hosts: consul_hosts
+  roles:
+    - { role: consul, become: true }
+
+- hosts: haproxy_host
   roles:
     - { role: haproxy, become: true }
-    

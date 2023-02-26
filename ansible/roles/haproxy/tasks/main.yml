@@ -5,13 +5,13 @@
   dnf:
     name: 
       - haproxy
-      - rsyslog
+      # - rsyslog
     state: present
     update_cache: true
 
 - name: copy haproxy config
-  copy:
-    src: ../files/haproxy.cfg 
+  template:
+    src: haproxy.cfg 
     dest: /etc/haproxy/haproxy.cfg
 
 - name: haproxy home
@@ -21,17 +21,17 @@
     owner: haproxy
     mode: '0755'
 
-- name: rsyslog haproxy dev
-  file:
-    name: /var/lib/haproxy/dev/
-    state: directory
-    mode: '0755'
+# - name: rsyslog haproxy dev
+#   file:
+#     name: /var/lib/haproxy/dev/
+#     state: directory
+#     mode: '0755'
 
-- name: rsyslog haproxy config
-  copy:
-    src: ../files/99-haproxy.conf
-    dest: /etc/rsyslog.d/99-haproxy.conf
-  notify: restart rsyslog
+# - name: rsyslog haproxy config
+#   copy:
+#     src: files/99-haproxy.conf
+#     dest: /etc/rsyslog.d/99-haproxy.conf
+#   notify: restart rsyslog
 
 - name: check haproxy conf
   command: /sbin/haproxy -c -f /etc/haproxy/haproxy.cfg

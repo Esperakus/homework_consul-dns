@@ -18,12 +18,12 @@ ${hostname}
 ${hostname}
 %{ endfor ~}
 
-[haproxy]
+[haproxy_host]
 %{ for hostname in haproxy ~}
 ${hostname}
 %{ endfor ~}
 
-[consul]
+[consul_hosts]
 %{ for hostname in consul ~}
 ${hostname}
 %{ endfor ~}
