@@ -9,15 +9,7 @@
 - name: unzip
   unarchive:
     src: /tmp/consul_1.14.3_linux_amd64.zip
-    dest: /tmp
-
-# - name: copy consul bin to /usr/local/bin
-#   command: cp /tmp/consul_1.14.3_linux_amd64/consul /usr/local/bin && chmod a+x /usr/local/bin/consul
-
-- name: copy consul bin to /usr/local/bin
-  copy:
-    src: /tmp/consul
-    dest: /usr/local/bin/consul
+    dest: /usr/bin
     remote_src: true
     mode: a+x
 
@@ -27,4 +19,32 @@
     shell: /sbin/nologin
     system: true
 
+- name: create consul folders
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0775'
+    owner: consul
+    group: consul
+  loop:
+    - /var/lib/consul
+    - /etc/consul.d
 
+- name: consul config
+  template:
+    src: config.json
+    dest: /etc/consul.d/config.json
+    owner: consul
+    group: consul
+
+- name: consul unit file
+  template:
+    src: consul.service
+    dest: /lib/systemd/system/consul.service
+
+- name: consul start
+  systemd:
+    name: consul.service
+    state: started
+    enabled: true
+    daemon_reload: true
