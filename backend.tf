@@ -7,7 +7,7 @@ resource "yandex_compute_instance" "backend" {
   resources {
     cores         = 2
     memory        = 2
-    core_fraction = 20
+    # core_fraction = 20
   }
 
   boot_disk {

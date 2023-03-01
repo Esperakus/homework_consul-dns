@@ -9,7 +9,7 @@ Type=simple
 User=consul
 Group=consul
 ExecStart=/usr/bin/consul agent \
-	-node={{ansible_hostname}} \
+	-node={{ ansible_hostname }} \
 	-config-dir=/etc/consul.d
 
 ExecReload=/bin/kill -HUP $MAINPID

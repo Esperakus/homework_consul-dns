@@ -20,12 +20,18 @@
         "consul1",
         "consul2"
     ],
-    "server": true,
+    "server": false,
     "start_join": [
         "consul0",
         "consul1",
         "consul2"
     ],
-   "ui_config": { "enabled": true }
+    "ui_config": { "enabled": true },
+
+    "service": {
+        "name": "web",
+        "tags": ["nginx"], 
+        "port": 80
+    }
    
 }
