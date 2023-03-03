@@ -37,7 +37,7 @@ $ terraform init
 $ terraform apply
 ```
 В выходных данных будут показаны все внешние и внутренни ip адреса. 
-Для проверки работы стенда необходимо открыть status страницу haproxy (http://{haproxy_external_ip}:7000) и веб-консоль consul'a (http://{haproxy_external_ip}:8500).
+Для проверки работы стенда необходимо открыть status страницу haproxy (*http://{external_ip_address_haproxy}:7000*) и веб-консоль consul'a (*http://{external_ip_address_haproxy}:8500*). На 80м порте можно посмотреть работу приложения (*http://external_ip_address_haproxy/* , *http://external_ip_address_haproxy/db* , *http://external_ip_address_haproxy/image*)
 
 С джамп-хоста можно ходить по ssh по всем машинам внутри проекта по их внутренним ip адресам или hostname (nginx0, nginx1, backend0, backend1, db, iscsi).
 
