@@ -1,0 +1,25 @@
+{
+    "datacenter": "dc1",
+    "data_dir": "/var/lib/consul",
+    "enable_script_checks": true,
+    "enable_syslog": true,
+    "encrypt": "zpjf5a4reDbJFpT6FeaF0LGxD0zBRPSRbIoUkLBt0ps=",
+    "leave_on_terminate": true,
+    "log_level": "INFO",
+    "server": false,
+    "start_join": [
+        "consul0",
+        "consul1",
+        "consul2"
+    ],
+
+   "service": {
+    "Name": "nginx",
+    "Port": 80,
+    "check": {
+      "args": 
+      ["curl", "localhost"],
+      "interval": "3s"
+    }
+  }
+}

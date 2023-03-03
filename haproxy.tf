@@ -4,8 +4,8 @@ resource "yandex_compute_instance" "haproxy" {
   hostname = "haproxy"
 
   resources {
-    cores         = 2
-    memory        = 2
+    cores  = 2
+    memory = 2
     # core_fraction = 20
   }
 

@@ -65,6 +65,7 @@
 - hosts: nginx_hosts
   roles: 
     - { role: nginx, become: true }
+    - { role: consul-agent, become: true }
   
 - hosts: backend_hosts
   roles:
