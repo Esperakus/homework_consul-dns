@@ -62,18 +62,18 @@
         sleep 20
         pcs resource create shared_fs ocf:heartbeat:Filesystem device=/dev/vg_gfs2/lv_gfs2 directory=/srv/static fstype=gfs2 options=noatime op monitor interval=10s on-fail=ignore --group shared_vg
 
-- hosts: nginx_hosts
-  roles: 
-    - { role: nginx, become: true }
-    - { role: consul-agent, become: true }
+- hosts: consul_hosts
+  roles:
+    - { role: consul, become: true }
   
 - hosts: backend_hosts
   roles:
     - { role: backend, become: true }
 
-- hosts: consul_hosts
-  roles:
-    - { role: consul, become: true }
+- hosts: nginx_hosts
+  roles: 
+    - { role: nginx, become: true }
+    - { role: consul-agent, become: true }
 
 - hosts: haproxy_host
   roles:
